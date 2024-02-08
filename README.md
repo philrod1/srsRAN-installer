@@ -69,12 +69,14 @@
 
 ## Run the EPC 
 
+    message "Running the EPC"
     sudo ip netns add ue1
     sudo srsepc > ~/srsepc.out 2>&1 &
 
 
 ## Run the ENB in ZeroMQ Mode
 
+    message "Running the ENB"
     export E2NODE_IP=`hostname  -I | cut -f1 -d' '`
     echo "export myip=`hostname  -I | cut -f1 -d' '`" >> ~/.bashrc
     echo 'export E2NODE_PORT=5006' >> ~/.bashrc
@@ -87,4 +89,6 @@
     
 ## Run the UE in ZeroMQ Mode
 
+    message "Running the UE"
     sudo srsue --gw.netns=ue1 > ~/.srsue.out 2>&1 &
+    message "Done."

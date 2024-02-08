@@ -24,7 +24,7 @@
     sudo apt upgrade -y
     sudo add-apt-repository ppa:ettusresearch/uhd
     sudo apt-get update
-    sudo apt-get install libuhd-dev uhd-host         
+    sudo apt-get install -y libuhd-dev uhd-host         
     sudo apt install -y openssh-server build-essential cmake libfftw3-dev libmbedtls-dev libboost-program-options-dev libconfig++-dev libsctp-dev libtool autoconf ccache libzmq3-dev
 
 

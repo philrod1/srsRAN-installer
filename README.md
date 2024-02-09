@@ -66,9 +66,9 @@
     message "... load"
     sudo ldconfig
     message "Install configs"
-    mkdir -p /root/.config/srsran
+    sudo mkdir -p /root/.config/srsran
     cd /usr/local/share/srsran
-    pax -rw -pe -s/.example// . /root/.config/srsran/
+    sudo pax -rw -pe -s/.example// . /root/.config/srsran/
     #sed -i '41d' srsran_install_configs.sh
     #sed -i '40s/.*/  force_install="true"/' srsran_install_configs.sh
     #sudo srsran_install_configs.sh service --force

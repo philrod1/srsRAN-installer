@@ -5,7 +5,7 @@
 #### You could also run each section by using the copy option
 
 ## Run this script after a clean install of the OAIC RIC
-## My RIC installer can be found here: https://github.com/philrod1/oaic-ric-installer
+### My RIC installer can be found here: https://github.com/philrod1/oaic-ric-installer
 ### Tested using ubuntu-20.04.1-legacy-server-amd64.iso image
 #### Hypervisor details: KVM, qemu-system-x86_64, Q35, BIOS
 #### Guest system: 4 cores, 16G RAM, 150G storage, default networking (NAT)

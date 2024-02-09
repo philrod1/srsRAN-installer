@@ -22,12 +22,11 @@
 
     message () { echo -e "\e[1;93m$1\e[0m"; }
     message "Refresh apt"
-    sudo apt update
-    sudo apt upgrade -y
     sudo add-apt-repository ppa:ettusresearch/uhd
-    sudo apt-get update
-    sudo apt-get install -y libuhd-dev uhd-host         
+    sudo apt update
+    sudo apt upgrade -y     
     sudo apt install -y pax openssh-server build-essential cmake libfftw3-dev libmbedtls-dev libboost-program-options-dev libconfig++-dev libsctp-dev libtool autoconf ccache libzmq3-dev
+    sudo apt install -y libuhd-dev uhd-host    
 
 
 ## Install asn1c Compiler

@@ -65,8 +65,8 @@
     message "... load"
     sudo ldconfig
     message "Install configs"
-    sed -i '41d' srsRAN-e2/build/srsran_install_configs.sh
-    sed -i '40s/.*/  force_install="true"/' srsRAN-e2/build/srsran_install_configs.sh
+    sed -i '41d' srsran_install_configs.sh
+    sed -i '40s/.*/  force_install="true"/' srsran_install_configs.sh
     sudo srsran_install_configs.sh user --force
 
 

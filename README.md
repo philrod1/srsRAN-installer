@@ -65,18 +65,22 @@
     message "... load"
     sudo ldconfig
     message "Install configs"
-    sudo srsran_install_configs.sh service --force
+    sed -i '41d' srsRAN-e2/build/srsran_install_configs.sh
+    sed -i '40s/.*/  force_install="true"/' srsRAN-e2/build/srsran_install_configs.sh
+    sudo srsran_install_configs.sh user --force
 
 
 ## Generate Start Scripts
 
     message "Generate SRS start scripts"
-    cat > ~/startEPC.sh <<EOF
-    #!/bin/bash
-    sudo srsepc
-    EOF
+cat > ~/startEPC.sh <<EOF
+#!/bin/bash
+sudo srsepc
+EOF
+    
     cat > ~/startENB.sh <<EOF
-    #!/bin/bash
+#!/bin/bash
+    
     sudo srsenb \
     --enb.n_prb=50 \
     --enb.name=enb1 \
@@ -89,12 +93,13 @@
     --log.filename=stdout \
     --ric.agent.local_ipv4_addr=${myip} \
     --ric.agent.local_port=${E2NODE_PORT}
-    EOF
+EOF
+    
     cat > startUE.sh <<EOF
-    #!/bin/bash
-    sudo ip netns add ue1
-    sudo srsue --gw.netns=ue1
-    EOF
+#!/bin/bash
+sudo ip netns add ue1
+sudo srsue --gw.netns=ue1
+EOF
 
 
 ## Start the Services 

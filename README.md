@@ -4,8 +4,9 @@
 #### Alternatively, you can click on the 🖉 symbol in Github and copy the raw markdown.
 #### You could also run each section by using the copy option
 
-## Start with a fresh install of Ubuntu 22.04
-### Tested using ubuntu-22.04.3-server-amd64.iso image
+## Run this script after a clean install of the OAIC RIC
+## My RIC installer can be found here: https://github.com/philrod1/oaic-ric-installer
+### Tested using ubuntu-20.04.1-legacy-server-amd64.iso image
 #### Hypervisor details: KVM, qemu-system-x86_64, Q35, BIOS
 #### Guest system: 4 cores, 16G RAM, 150G storage, default networking (NAT)
 #### Host system: Ubuntu 23.10, Kernel 6.5.0, Intel i7-1370P, 64G RAM

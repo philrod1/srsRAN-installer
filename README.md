@@ -15,7 +15,8 @@
 ## Setup Useful Aliases
 
     export myip=`hostname  -I | cut -f1 -d' '`
-
+    export E2NODE_PORT=5006
+    export E2TERM_IP=`sudo kubectl get svc -n ricplt --field-selector metadata.name=service-ricplt-e2term-sctp-alpha -o jsonpath='{.items[0].spec.clusterIP}'`
 
 ## Do apt Stuff
 
@@ -26,7 +27,7 @@
     sudo add-apt-repository ppa:ettusresearch/uhd
     sudo apt-get update
     sudo apt-get install -y libuhd-dev uhd-host         
-    sudo apt install -y openssh-server build-essential cmake libfftw3-dev libmbedtls-dev libboost-program-options-dev libconfig++-dev libsctp-dev libtool autoconf ccache libzmq3-dev
+    sudo apt install -y pax openssh-server build-essential cmake libfftw3-dev libmbedtls-dev libboost-program-options-dev libconfig++-dev libsctp-dev libtool autoconf ccache libzmq3-dev
 
 
 ## Install asn1c Compiler
@@ -65,9 +66,12 @@
     message "... load"
     sudo ldconfig
     message "Install configs"
-    sed -i '41d' srsran_install_configs.sh
-    sed -i '40s/.*/  force_install="true"/' srsran_install_configs.sh
-    sudo srsran_install_configs.sh user --force
+    mkdir -p /root/.config/srsran
+    cd /usr/local/share/srsran
+    pax -rw -pe -s/.example// . /root/.config/srsran/
+    #sed -i '41d' srsran_install_configs.sh
+    #sed -i '40s/.*/  force_install="true"/' srsran_install_configs.sh
+    #sudo srsran_install_configs.sh service --force
 
 
 ## Generate Start Scripts
@@ -95,7 +99,7 @@ EOF
     --ric.agent.local_port=${E2NODE_PORT}
 EOF
     
-    cat > startUE.sh <<EOF
+    cat > ~/startUE.sh <<EOF
 #!/bin/bash
 sudo ip netns add ue1
 sudo srsue --gw.netns=ue1
@@ -105,7 +109,8 @@ EOF
 ## Start the Services 
 
     message "Starting the Services"
-    mkdir ~/srs_logs
+    cd
+    mkdir srs_logs
     nohup bash startEPC.sh > ~/srs_logs/epc.log 2>&1 & echo $! > ~/srs_logs/epc.pid
     nohup bash startENB.sh > ~/srs_logs/enb.log 2>&1 & echo $! > ~/srs_logs/enb.pid
     nohup bash startUE.sh > ~/srs_logs/ue.log 2>&1 & echo $! > ~/srs_logs/ue.pid

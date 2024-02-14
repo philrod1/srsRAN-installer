@@ -25,8 +25,8 @@
     sudo add-apt-repository ppa:ettusresearch/uhd
     sudo apt update
     sudo apt upgrade -y     
-    sudo apt install -y pax openssh-server build-essential cmake libfftw3-dev libmbedtls-dev libboost-program-options-dev libconfig++-dev libsctp-dev libtool autoconf ccache libzmq3-dev
-    sudo apt install -y libuhd-dev uhd-host    
+    sudo apt install -y libuhd-dev libuhd4.1.0 uhd-host libzmq3-dev
+    sudo apt install -y pax openssh-server build-essential cmake libfftw3-dev libmbedtls-dev libboost-program-options-dev libconfig++-dev libsctp-dev libtool autoconf ccache
 
 
 ## Install asn1c Compiler

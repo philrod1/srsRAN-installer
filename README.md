@@ -45,11 +45,7 @@
 ## Build and install srsRAN E2 agent
 
     message "Cloning the srsRAN-e2 project"
-    cd
-    #git clone https://github.com/openaicellular/srsRAN-e2.git
-    #message "Fixing the code"
-    #sed -i '6i #include <cstddef>' srsRAN-e2/srsenb/hdr/ric/e2ap.h
-    cd oaic/srsRAN-e2
+    cd ~/oaic/srsRAN-e2
     mkdir build
     export SRS=`realpath .`
     cd build
@@ -68,9 +64,6 @@
     sudo mkdir -p /root/.config/srsran
     cd /usr/local/share/srsran
     sudo pax -rw -pe -s/.example// . /root/.config/srsran/
-    #sed -i '41d' srsran_install_configs.sh
-    #sed -i '40s/.*/  force_install="true"/' srsran_install_configs.sh
-    #sudo srsran_install_configs.sh service --force
 
 
 ## Generate Start Scripts

@@ -46,10 +46,10 @@
 
     message "Cloning the srsRAN-e2 project"
     cd
-    git clone https://github.com/openaicellular/srsRAN-e2.git
-    message "Fixing the code"
-    sed -i '6i #include <cstddef>' srsRAN-e2/srsenb/hdr/ric/e2ap.h
-    cd srsRAN-e2
+    #git clone https://github.com/openaicellular/srsRAN-e2.git
+    #message "Fixing the code"
+    #sed -i '6i #include <cstddef>' srsRAN-e2/srsenb/hdr/ric/e2ap.h
+    cd oaic/srsRAN-e2
     mkdir build
     export SRS=`realpath .`
     cd build

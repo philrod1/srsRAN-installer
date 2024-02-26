@@ -108,6 +108,9 @@ EOF
     nohup bash startUE.sh > ~/srs_logs/ue.log 2>&1 & echo $! > ~/srs_logs/ue.pid
     message "Done."
     
+## Alternative to nohup
+#### I personally prefer screen to nohup.  I use variations of this command: screen -S epc /bin/bash -c './startEPC.sh 2>&1 | tee srs_logs/epc.log'
     
+
 ## More Information
 #### The three services are running in the background using nohup.  The PID of the respective nohup processes are stored in files inside the srs_logs directory.  This information is pretty much useless, as the actual PID of the services will be something like 1-4 greater than the stored PID.  If you want to kill a service, you could simply do `sudo killall srsue` for example.  I might work on a more elegant solution at some point.

@@ -109,7 +109,8 @@ EOF
     message "Done."
     
 ## Alternative to nohup
-#### I personally prefer screen to nohup.  I use variations of this command: screen -S epc /bin/bash -c './startEPC.sh 2>&1 | tee srs_logs/epc.log'
+#### I personally prefer screen to nohup.  I use variations of this command: -
+#### screen -S epc /bin/bash -c './startEPC.sh 2>&1 | tee srs_logs/epc.log'
     
 
 ## More Information

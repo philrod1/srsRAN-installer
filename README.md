@@ -100,13 +100,13 @@ EOF
 
 ## Start the Services 
 
-    message "Starting the Services"
-    cd
-    mkdir srs_logs
-    nohup bash startEPC.sh > ~/srs_logs/epc.log 2>&1 & echo $! > ~/srs_logs/epc.pid
-    nohup bash startENB.sh > ~/srs_logs/enb.log 2>&1 & echo $! > ~/srs_logs/enb.pid
-    nohup bash startUE.sh > ~/srs_logs/ue.log 2>&1 & echo $! > ~/srs_logs/ue.pid
-    message "Done."
+    #message "Starting the Services"
+    #cd
+    #mkdir srs_logs
+    #nohup bash startEPC.sh > ~/srs_logs/epc.log 2>&1 & echo $! > ~/srs_logs/epc.pid
+    #nohup bash startENB.sh > ~/srs_logs/enb.log 2>&1 & echo $! > ~/srs_logs/enb.pid
+    #nohup bash startUE.sh > ~/srs_logs/ue.log 2>&1 & echo $! > ~/srs_logs/ue.pid
+    #message "Done."
     
 ## Alternative to nohup
 #### I personally prefer screen to nohup.  I use variations of this command: -
